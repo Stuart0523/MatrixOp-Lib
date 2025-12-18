@@ -52,3 +52,20 @@ void mat_adj(double A[SIZE][SIZE], double adj[SIZE][SIZE]) {
     adj[1][0] = c01; adj[1][1] = c11; adj[1][2] = c21;
     adj[2][0] = c02; adj[2][1] = c12; adj[2][2] = c22;
 }
+
+int mat_inverse(double A[SIZE][SIZE], double inv[SIZE][SIZE]) {
+    double det = mat_det(A);
+
+    // det = 0 => no inverse
+    if (det == 0) return 0;
+
+    double adj[SIZE][SIZE];
+    mat_adj(A, adj);
+
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < SIZE; j++) {
+            inv[i][j] = adj[i][j] / det;
+        }
+    }
+    return 1;
+}
