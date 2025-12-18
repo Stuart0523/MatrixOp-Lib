@@ -18,3 +18,11 @@ void mat_mul(double A[SIZE][SIZE], double B[SIZE][SIZE], double C[SIZE][SIZE]) {
         }
     }
 }
+
+void mat_transpose(double A[SIZE][SIZE], double T[SIZE][SIZE]) {
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < SIZE; j++) {
+            T[j][i] = A[i][j];
+        }
+    }
+}
